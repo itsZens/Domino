@@ -62,21 +62,7 @@ function iniciar() {
 				response.end();
 			});
 
-		} else if (pathname == '/properties.js') {
-			response.writeHead(200, {
-				"Content-Type": "text/html; charset=utf-8"
-			});
-
-			fs.readFile('./properties.js', function (err, sortida) {
-				response.writeHead(200, {
-					'Content-Type': 'text/css'
-				});
-
-				response.write(sortida);
-				response.end();
-			});
-
-		}  else if (pathname == '/Game.js') {
+		} else if (pathname == './js/Game.js') {
 			response.writeHead(200, {
 				"Content-Type": "text/html; charset=utf-8"
 			});
@@ -90,21 +76,9 @@ function iniciar() {
 				response.end();
 			});
 
-		} else if (pathname == '/scriptJoc.js') {
-			response.writeHead(200, {
-				"Content-Type": "text/html; charset=utf-8"
-			});
+		}
 
-			fs.readFile('./scriptJoc.js', function (err, sortida) {
-				response.writeHead(200, {
-					'Content-Type': 'text/css'
-				});
-
-				response.write(sortida);
-				response.end();
-			});
-
-		} else if (pathname == '/imatge') {
+		else if (pathname == '/imatge') {
 			response.writeHead(200, {
 				"Content-Type": "text/html; charset=utf-8"
 			});
