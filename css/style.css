@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Open+Sans:300');
+body, input, button {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    background-color: darkseagreen;
+}
+
+h1 {
+    font-family: 'Indie Flower', cursive;
+    font-size: 4em;
+}
+
+.central {
+    margin-left: 25%;
+    margin-right: 25%;
+    justify-content:center;
+}
+
+#jugades {
+    text-align: center;
+    background-image: url("/imatge?img=tapete.png");
+    background-repeat: no-repeat;
+    border-color: black;
+    border-width: thick;
+}
+#dropZonesDiv{
+    display: flex;
+}
+
+#dropDre {
+    background-image: url("/imatge?img=right.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100px;
+    height: 115px;
+    margin-left: 5%;
+}
+
+#dropEsq {
+    background-image: url("/imatge?img=left.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100px;
+    height: 115px;
+    margin-right: 5%;
+}
+}
