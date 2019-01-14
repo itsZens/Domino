@@ -9,7 +9,7 @@ function iniciar() {
 		var sortida;
 		var pathname = url.parse(request.url).pathname;
 
-		if(pathname != '/favicon.ico'){
+		if(pathname != '/favicon.ico' && pathname != '/serverDomino.js' && pathname != '/css/Index.css' && pathname != '/Images/LogoDomino.png'){
 			console.log("Petició per a  " + pathname + " rebuda.");
 		}
 
@@ -18,19 +18,19 @@ function iniciar() {
 				"Content-Type": "text/html; charset=utf-8"
 			});
 
-			fs.readFile('./Login.html', function (err, sortida) {
+			fs.readFile('./Index.html', function (err, sortida) {
 				response.writeHead(200, {
 					'Content-Type': 'text/html'
 				});
 				response.write(sortida);
 				response.end();
 			});
-		} else if (pathname == '/Login'){
+		} else if (pathname == '/Index'){
 			response.writeHead(200, {
 				"Content-Type": "text/html; charset=utf-8"
 			});
 
-			fs.readFile('./Login.html', function (err, sortida) {
+			fs.readFile('./Index.html', function (err, sortida) {
 				response.writeHead(200, {
 					'Content-Type': 'text/html'
 				});
@@ -49,14 +49,26 @@ function iniciar() {
 				response.write(sortida);
 				response.end();
 			});
-		} else if (pathname == '/Domino'){
+		} else if (pathname == '/css/Index.css'){
 			response.writeHead(200, {
-				"Content-Type": "text/html; charset=utf-8"
+				"Content-Type": "text/css; charset=utf-8"
 			});
 
-			fs.readFile('./Domino.html', function (err, sortida) {
+			fs.readFile('./css/Index.css', function (err, sortida) {
 				response.writeHead(200, {
-					'Content-Type': 'text/html'
+					'Content-Type': 'text/css'
+				});
+				response.write(sortida);
+				response.end();
+			});
+		} else if (pathname == '/Images/LogoDomino.png'){
+			response.writeHead(200, {
+				"Content-Type": "image/png; charset=utf-8"
+			});
+
+			fs.readFile('./Images/LogoDomino.png', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'image/png'
 				});
 				response.write(sortida);
 				response.end();
@@ -67,16 +79,9 @@ function iniciar() {
 	console.log("Servidor iniciat a http://localhost:8888");
 }
 
-function GetUsername (){
-	var username = document.getElementById("inputUsername").value;
-	var idUsername = 0;
-	/*var objectUsername = {
-		"id": idUsername,
-		"username": username
-	};*/
-	console.log("El jugador " + username + " té l'ID " + idUsername);
-	idUsername++;
-	window.location.replace("/Domino");
-}
+/*function setCookieUser (){
+	var username = ;
+
+}*/
 
 exports.iniciar = iniciar;

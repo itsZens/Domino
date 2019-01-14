@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Domino Online</title>
+    <link href="css/Index.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+
+<body>
+<div>
+    <h1 class="title">Domino Online</h1>
+    <h3 class="subtitle">Welcome to the lobby of the ultimate online Domino created using exclusively NodeJS, AJAX and
+        MongoDB</h3>
+    <br/><br/>
+</div>
+<div class="imgLogoLobby">
+    <img src="Images/LogoDomino.png" alt="">
+</div>
+<br/>
+<div class="contentLobby">
+    <h5>Choose your username and press the following button to search for an opponent</h5>
+    <form method="post" action="/Lobby">
+        <div class="col-sm-3 col-centered">
+            <div class="form-group">
+                <br />
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="inputUsername" placeholder="Username" required>
+            </div>
+        </div>
+        <br /><br />
+        <button class="btn btn-primary">Start Game</button>
+    </form>
+</div>
+
+</body>
+
+</html>
