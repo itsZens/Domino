@@ -73,6 +73,18 @@ function iniciar() {
 				response.write(sortida);
 				response.end();
 			});
+		} else if (pathname == '/Lobby'){
+			response.writeHead(200, {
+				"Content-Type": "text/html; charset=utf-8"
+			});
+
+			fs.readFile('./Lobby.html', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'text/html'
+				});
+				response.write(sortida);
+				response.end();
+			});
 		}
 	}
 	http.createServer(onRequest).listen(8888);
