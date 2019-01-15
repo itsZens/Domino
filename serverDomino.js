@@ -11,7 +11,9 @@ function iniciar() {
 
 		if(pathname != '/favicon.ico' && pathname != '/serverDomino.js' && pathname != '/css/Index.css'
             && pathname != '/Images/LogoDomino.png' && pathname != '/js/Lobby.js'
-            && pathname != '/css/Domino.css' && pathname != '/css/Scoreboards.css' && pathname != '/js/Scoreboards.js' ){
+            && pathname != '/css/Domino.css' && pathname != '/css/Scoreboards.css' && pathname != '/js/Scoreboards.js'
+            && pathname != '/Images/Trophy.png' && pathname != '/Images/SecondPrize.png' && pathname != '/Images/ThirdPrize.png'
+            && pathname != '/css/Lobby.css'){
 			console.log("Petició per a  " + pathname + " rebuda.");
 		}
 
@@ -155,6 +157,54 @@ function iniciar() {
             fs.readFile('./js/Scoreboards.js', function (err, sortida) {
                 response.writeHead(200, {
                     'Content-Type': 'text/js'
+                });
+                response.write(sortida);
+                response.end();
+            });
+        } else if (pathname == '/Images/Trophy.png'){
+            response.writeHead(200, {
+                "Content-Type": "image/png; charset=utf-8"
+            });
+
+            fs.readFile('./Images/Trophy.png', function (err, sortida) {
+                response.writeHead(200, {
+                    'Content-Type': 'image/png'
+                });
+                response.write(sortida);
+                response.end();
+            });
+        } else if (pathname == '/Images/SecondPrize.png'){
+            response.writeHead(200, {
+                "Content-Type": "image/png; charset=utf-8"
+            });
+
+            fs.readFile('./Images/SecondPrize.png', function (err, sortida) {
+                response.writeHead(200, {
+                    'Content-Type': 'image/png'
+                });
+                response.write(sortida);
+                response.end();
+            });
+        } else if (pathname == '/Images/ThirdPrize.png'){
+            response.writeHead(200, {
+                "Content-Type": "image/png; charset=utf-8"
+            });
+
+            fs.readFile('./Images/ThirdPrize.png', function (err, sortida) {
+                response.writeHead(200, {
+                    'Content-Type': 'image/png'
+                });
+                response.write(sortida);
+                response.end();
+            });
+        } else if (pathname == '/css/Lobby.css'){
+            response.writeHead(200, {
+                "Content-Type": "text/css; charset=utf-8"
+            });
+
+            fs.readFile('./css/Lobby.css', function (err, sortida) {
+                response.writeHead(200, {
+                    'Content-Type': 'text/css'
                 });
                 response.write(sortida);
                 response.end();
