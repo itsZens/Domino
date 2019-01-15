@@ -13,18 +13,20 @@
  * ORIGEN
  * Desenvolupament en entorn client. Escola del clot
  */
-var id = 0;
+var nameJugador =  document.forms["formUsername"].value;
 var id_interval;
 var pieces = [];
 var playedPiece;
 
 window.onload = function () {
     var xhr;
-    var dada;
+    var dada;ç
+
+
 
     id_interval = setInterval(function () {
         //amb aixo creem el JSON amb les dades del servidor
-        cridaAJAXinicial('/index?idJugador=' + id);
+        cridaAJAXinicial('/index?nomJugador=' + nameJugador);
     }, 3000);
 
 };
