@@ -14,12 +14,15 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
             integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
             crossorigin="anonymous"></script>
-    <script src="/js/Lobby.js"></script>
+    <link href="css/Scoreboards.css" type="text/css" rel="stylesheet"/>
+    <script src="/js/Scoreboards.js"></script>
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Domino Online</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -29,7 +32,8 @@
             </div>
         </div>
         <div class="dropdown" style="margin-right: 2%;">
-            <a class="btn btn-secondary dropdown-toggle" style="background-color: #666666;" href="#" role="button" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="btn btn-secondary dropdown-toggle" style="background-color: #666666;" href="#" role="button"
+               id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownUserMenu">
@@ -37,5 +41,38 @@
             </div>
         </div>
     </nav>
+    <div class="row">
+        <div class="col-sm-8 table-centered">
+            <div class="table-responsive">
+                <table id="RankingTable" class="table table-striped white"
+                       >
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Position</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Score</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

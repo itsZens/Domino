@@ -9,7 +9,9 @@ function iniciar() {
 		var sortida;
 		var pathname = url.parse(request.url).pathname;
 
-		if(pathname != '/favicon.ico' && pathname != '/serverDomino.js' && pathname != '/css/Index.css' && pathname != '/Images/LogoDomino.png' && pathname != '/js/Lobby.js'){
+		if(pathname != '/favicon.ico' && pathname != '/serverDomino.js' && pathname != '/css/Index.css'
+            && pathname != '/Images/LogoDomino.png' && pathname != '/js/Lobby.js'
+            && pathname != '/css/Domino.css' && pathname != '/css/Scoreboards.css' && pathname != '/js/Scoreboards.js' ){
 			console.log("Petició per a  " + pathname + " rebuda.");
 		}
 
@@ -109,7 +111,55 @@ function iniciar() {
 				response.write(sortida);
 				response.end();
 			});
-		}
+		} else if (pathname == '/Domino'){
+            response.writeHead(200, {
+                "Content-Type": "text/js; charset=utf-8"
+            });
+
+            fs.readFile('./Domino.html', function (err, sortida) {
+                response.writeHead(200, {
+                    'Content-Type': 'text/html'
+                });
+                response.write(sortida);
+                response.end();
+            });
+        } else if (pathname == '/css/Domino.css'){
+            response.writeHead(200, {
+                "Content-Type": "text/css; charset=utf-8"
+            });
+
+            fs.readFile('./css/Domino.css', function (err, sortida) {
+                response.writeHead(200, {
+                    'Content-Type': 'text/css'
+                });
+                response.write(sortida);
+                response.end();
+            });
+        } else if (pathname == '/css/Scoreboards.css'){
+            response.writeHead(200, {
+                "Content-Type": "text/css; charset=utf-8"
+            });
+
+            fs.readFile('./css/Scoreboards.css', function (err, sortida) {
+                response.writeHead(200, {
+                    'Content-Type': 'text/css'
+                });
+                response.write(sortida);
+                response.end();
+            });
+        } else if (pathname == '/js/Scoreboards.js'){
+            response.writeHead(200, {
+                "Content-Type": "text/js; charset=utf-8"
+            });
+
+            fs.readFile('./js/Scoreboards.js', function (err, sortida) {
+                response.writeHead(200, {
+                    'Content-Type': 'text/js'
+                });
+                response.write(sortida);
+                response.end();
+            });
+        }
 	}
 	http.createServer(onRequest).listen(8888);
 	console.log("Servidor iniciat a http://localhost:8888");
