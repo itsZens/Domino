@@ -4,11 +4,18 @@ var querystring = require("querystring");
 var fs = require('fs');
 var Usernames = [];
 
+
+
+
 function iniciar() {
 	function onRequest(request, response) {
 		var sortida;
 		var pathname = url.parse(request.url).pathname;
+		var consulta = url.parse(request.url, true).query;
+		var nombre = consulta['caracter'];
+		if (nombre != undefined )
 
+		console.log("Petició per a  " + pathname + " rebuda.");
 		if(pathname != '/favicon.ico' && pathname != '/serverDomino.js' && pathname != '/css/Index.css' && pathname != '/Images/LogoDomino.png'){
 			console.log("Petició per a  " + pathname + " rebuda.");
 		}
@@ -85,6 +92,33 @@ function iniciar() {
 				response.write(sortida);
 				response.end();
 			});
+		}else if (pathname == '/index') {
+			response.writeHead(200, {
+				"Content-Type": "application/json charset=utf-8"
+			});
+			for(var i =0; i> Usernames.length;i++);
+			var players = Usernames.length;
+			var id;
+			var nameJugador = consulta['nomJugador'];
+			if(nameJugador === players[i]){
+				id = i ;
+				Usernames.push(Usernames[i]);
+				//problemaaa
+			}else {
+				alert(ERROR);
+			/*else if(id != 0){
+                id = 999;
+            }*/
+			}
+			console.log("El jugador "+Usernames[i]+" ha entrat. Num players "+id);
+
+			var objecteInicial = {
+				"id" : id,
+				"jugadors": Usernames[i]
+			};
+
+			response.write(JSON.stringify(objecteInicial));
+			response.end();
 		}
 	}
 	http.createServer(onRequest).listen(8888);
