@@ -9,7 +9,7 @@ function iniciar() {
 		var sortida;
 		var pathname = url.parse(request.url).pathname;
 
-		if(pathname != '/favicon.ico' && pathname != '/serverDomino.js' && pathname != '/css/Index.css' && pathname != '/Images/LogoDomino.png'){
+		if(pathname != '/favicon.ico' && pathname != '/serverDomino.js' && pathname != '/css/Index.css' && pathname != '/Images/LogoDomino.png' && pathname != '/js/Lobby.js'){
 			console.log("Petició per a  " + pathname + " rebuda.");
 		}
 
@@ -81,6 +81,18 @@ function iniciar() {
 			fs.readFile('./Lobby.html', function (err, sortida) {
 				response.writeHead(200, {
 					'Content-Type': 'text/html'
+				});
+				response.write(sortida);
+				response.end();
+			});
+		} else if (pathname == '/js/Lobby.js'){
+			response.writeHead(200, {
+				"Content-Type": "text/js; charset=utf-8"
+			});
+
+			fs.readFile('./js/Lobby.js', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'text/js'
 				});
 				response.write(sortida);
 				response.end();
