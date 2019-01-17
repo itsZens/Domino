@@ -10,10 +10,10 @@ function iniciar() {
 		var pathname = url.parse(request.url).pathname;
 
 		if(pathname != '/favicon.ico' && pathname != '/serverDomino.js' && pathname != '/css/Index.css'
-            && pathname != '/Images/LogoDomino.png' && pathname != '/js/Lobby.js'
+            && pathname != '/Images/LogoDomino.png' && pathname != '/js/Lobby.js' && pathname != '/js/Game.js'
             && pathname != '/css/Domino.css' && pathname != '/css/Scoreboards.css' && pathname != '/js/Scoreboards.js'
             && pathname != '/Images/Trophy.png' && pathname != '/Images/SecondPrize.png' && pathname != '/Images/ThirdPrize.png'
-            && pathname != '/css/Lobby.css'){
+            && pathname != '/css/Lobby.css' && pathname != '/' && pathname != '/json'){
 			console.log("Petició per a  " + pathname + " rebuda.");
 		}
 
@@ -101,7 +101,19 @@ function iniciar() {
 				response.write(sortida);
 				response.end();
 			});
-		} else if (pathname == '/Scoreboards'){
+		}else if (pathname == '/js/Game.js'){
+			response.writeHead(200, {
+				"Content-Type": "text/js; charset=utf-8"
+			});
+
+			fs.readFile('./js/Game.js', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'text/js'
+				});
+				response.write(sortida);
+				response.end();
+			});
+		}else if (pathname == '/Scoreboards'){
 			response.writeHead(200, {
 				"Content-Type": "text/html; charset=utf-8"
 			});
