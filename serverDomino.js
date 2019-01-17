@@ -209,7 +209,29 @@ function iniciar() {
                 response.write(sortida);
                 response.end();
             });
-        }
+        }else if (pathname == '/json'){
+			response.writeHead(200, {
+
+				"Content-Type": "application/json charset=utf-8"
+			});
+
+			var consulta = url.parse(request.url, true).query;
+			var Username = consulta['Username'];
+			var id = Usernames.length;
+
+
+			Usernames.push(Username);
+
+			console.log("El jugador "+Username+" ha entrat..");
+
+			var objecteInicial = {
+				"id": id,
+				"Username" : Usernames
+			};
+			response.write(JSON.stringify(objecteInicial));
+			response.end();
+
+		}
 	}
 	http.createServer(onRequest).listen(8888);
 	console.log("Servidor iniciat a http://localhost:8888");
