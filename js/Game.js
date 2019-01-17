@@ -19,11 +19,13 @@ window.onload = function () {
 function start(){
     Username = document.getElementById("inputUsername").value;
 
+
     cridaAJAXinicial('/json?Username='+Username);
-    console.log(Username);
+    localStorage.setItem('Username', Username);
+
+
 
 }
-
 
 
 
@@ -44,6 +46,7 @@ function cridaAJAXinicial(url) {
     xhr.onreadystatechange = callbackAJAXinicial;
     xhr.open('POST', url, true); // el 3r paràmetre indica que és asíncron
     xhr.send(null);
+
 }
 //Callback AJAX que només s'executa al entrar a la pàgina
 function callbackAJAXinicial() {
@@ -74,5 +77,5 @@ if(jugadors.length < 2){
     //document.getElementById("btnJugar").attributes.addNamedItem("hidden");
     clearInterval(interval);
 }
-}*/
-
+}
+*/
