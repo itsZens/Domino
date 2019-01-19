@@ -23,7 +23,7 @@ function cridaAJAXinicial(url) {
 
     let xhr = new XMLHttpRequest();
     if (!xhr) {
-        alert('problemes amb XHR');
+        alert('Problemes amb XHR');
         return false;
     }
     xhr.onreadystatechange = callbackAJAXinicial;
@@ -47,7 +47,8 @@ function callbackAJAXinicial() {
 
             //mostrarInici();
         } else {
-            console.log('problemes amb l\'AJAX');
+            console.log('p' +
+                'Problemes amb l\'AJAX');
         }
     }
 }
@@ -64,7 +65,7 @@ function mostrarInici() {
         //document.getElementById("btnJugar").attributes.removeNamedItem("hidden");
         clearInterval(interval);
     } else if(jugadors.length == 2 && id == 0) {
-        document.getElementById("message").innerText = "Game full wait please..";
+        document.getElementById("message").innerText = "Game in progress... Please wait!";
         //document.getElementById("btnJugar").attributes.addNamedItem("hidden");
         clearInterval(interval);
     }
