@@ -1,6 +1,6 @@
-var http = require("http");
-var url = require("url");
-var querystring = require("querystring");
+var http = require('http');
+var url = require('url');
+var querystring = require('querystring');
 var fs = require('fs');
 var Usernames = [];
 
@@ -13,7 +13,7 @@ function iniciar() {
             && pathname != '/Images/LogoDomino.png' && pathname != '/js/Lobby.js' && pathname != '/js/Game.js'
             && pathname != '/css/Domino.css' && pathname != '/css/Scoreboards.css' && pathname != '/js/Scoreboards.js'
             && pathname != '/Images/Trophy.png' && pathname != '/Images/SecondPrize.png' && pathname != '/Images/ThirdPrize.png'
-            && pathname != '/css/Lobby.css' && pathname != '/' && pathname != '/json'){
+            && pathname != '/css/Lobby.css' && pathname != '/' && pathname != '/json' && pathname != '/js/Domino.js'){
 			console.log("Petició per a  " + pathname + " rebuda.");
 		}
 
@@ -221,7 +221,7 @@ function iniciar() {
                 response.write(sortida);
                 response.end();
             });
-        }else if (pathname == '/json'){
+        } else if (pathname == '/json'){
 			response.writeHead(200, {
 
 				"Content-Type": "application/json charset=utf-8"
@@ -243,15 +243,23 @@ function iniciar() {
 			response.write(JSON.stringify(objecteInicial));
 			response.end();
 
+		} else if (pathname == '/js/Domino.js'){
+			response.writeHead(200, {
+				"Content-Type": "text/js; charset=utf-8"
+			});
+
+			fs.readFile('./js/Domino.js', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'text/js'
+				});
+				response.write(sortida);
+				response.end();
+			});
 		}
 	}
 	http.createServer(onRequest).listen(8888);
 	console.log("Servidor iniciat a http://localhost:8888");
 }
 
-/*function setCookieUser (){
-	var username = ;
-
-}*/
 
 exports.iniciar = iniciar;
