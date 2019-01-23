@@ -1,6 +1,6 @@
-var http = require('http');
-var url = require('url');
-var querystring = require('querystring');
+var http = require("http");
+var url = require("url");
+var querystring = require("querystring");
 var fs = require('fs');
 var numPlayers = [];
 var playedPieces = [];
@@ -66,6 +66,7 @@ function iniciar() {
 				response.write(sortida);
 				response.end();
 			});
+
 		} else if (pathname == '/css/Index.css') {
 			response.writeHead(200, {
 				"Content-Type": "text/css; charset=utf-8"
@@ -710,10 +711,11 @@ function iniciar() {
 			response.write(sortida);
 			response.end();
 		}
+	}
 
 		http.createServer(onRequest).listen(8888);
 		console.log("Server started at http://localhost:8888");
-	}
+
 }
 function repartirPeces(peces){
 	var p =[];

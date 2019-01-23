@@ -25,7 +25,7 @@ var playedPieces = [];
  */
 function cridaAJAXJoc(url) {
     xhr = new XMLHttpRequest();
-    st
+
     if (!xhr) {
         alert('problemes amb XHR');
         return false;
@@ -52,8 +52,7 @@ function callbackAJAXJoc() {
 
 /**
  * Métode per mostrar la pàgina del joc
- */
-function mostrarJoc() {
+ */function mostrarJoc() {
     var p=3;
     id = dada.id;
     tornActual = dada.torn;
@@ -80,7 +79,7 @@ function mostrarJoc() {
         b.height = 90;
         b.width = 45;
         b.draggable = true;
-        var srcImg ="/imatge?img="+pieces[i]+".png";
+        var srcImg ="/Images/Fitxes"+pieces[i]+".png";
         b.src = srcImg;
         //"<img src=img\\"+pieces[i]+">";
         b.className = "piece";
@@ -143,7 +142,7 @@ function mostrarJugada() {
         b.height = 90;
         b.width = 45;
         b.draggable = false;
-        var srcImg ="/Images/Fitxes?img="+playedPieces[i]+".png";
+        var srcImg ="/imatge?img="+playedPieces[i]+".png";
         b.src = srcImg;
         b.className = "piece";
         b.title =  playedPieces[i]+": J"+id;
@@ -236,7 +235,7 @@ function canviTorn(id, torn) {
         b.height = 90;
         b.width = 45;
         b.draggable = false;
-        var srcImg ="/Images/Fitxes?img="+playedPieces[i]+".png";
+        var srcImg ="/imatge?img="+playedPieces[i]+".png";
         b.src = srcImg;
         b.className = "piece";
         b.title =  playedPieces[i]+": J"+id;
