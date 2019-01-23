@@ -2,7 +2,10 @@ var http = require('http');
 var url = require('url');
 var querystring = require('querystring');
 var fs = require('fs');
-var Usernames = [];
+var numPlayers = [];
+
+repartirPeces(pieces);
+
 
 function iniciar() {
 	function onRequest(request, response) {
@@ -230,15 +233,26 @@ function iniciar() {
 			});
 
 			var consulta = url.parse(request.url, true).query;
-			var Username = consulta['Username'];
-			var id = Usernames.length;
+			var id = consulta['idJugador'];
+			var players = numPlayers.length;
+			//var Username = consulta['Username'];
 
-			Usernames.push(Username);
-			console.log("Player " + Username + " has logged in");
+			if(id == 0 && players == 0){
+				id = 1;
+				numPlayers.push(1);
+			}else if(id == 0 && players == 1){
+				id = 2;
+				numPlayers.push(2);
+			}else {
+				id;
+			}
+			console.log("Player " + id + " has logged in");
+			//console.log("El jugador "+id+" ha entrat. Num players "+numPlayers.length);
+
 
 			var objecteInicial = {
 				"id": id,
-				"Username": Usernames
+				"jugadors": numPlayers
 			};
 			response.write(JSON.stringify(objecteInicial));
 			response.end();
@@ -609,6 +623,45 @@ function iniciar() {
 		http.createServer(onRequest).listen(8888);
 	console.log("Server started at http://localhost:8888");
 }
+function repartirPeces(peces){
+	var p =[];
+	var p1 = [];
+	var p2 = [];
+	for(var i=0; i<peces.length;){
+		k = Math.floor(Math.random() * peces.length);
+		var numAlreadyIn = false;
+		for(var j=0; j<p.length;j++){
+			if(p[j] == k){
+				numAlreadyIn = true;
+				break;
+			}else{
+				numAlreadyIn = false;
 
+			}
+		}p.push(k);
+		if(!numAlreadyIn) {
+			if (i % 2 == 1){
+				p1.push(k);
+			}else if (i % 2 == 0) {
+				p2.push(k);
+			}
+
+			i++;
+		}
+	}//player1Hand = p1;
+	//player2Hand = p2;
+	retornarPecesImg(p1,p2);
+}
+
+
+function retornarPecesImg(peces1,peces2) {
+	for(var i= 0; i<peces1.length;i++){
+		player1Hand[i] = pieces[peces1[i]];
+	};
+
+	for(var j= 0; j<peces2.length;j++){
+		player2Hand[j] = pieces[peces2[j]];
+	}
+}
 
 exports.iniciar = iniciar;
