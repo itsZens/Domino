@@ -52,7 +52,8 @@ function callbackAJAXJoc() {
 
 /**
  * Métode per mostrar la pàgina del joc
- */function mostrarJoc() {
+ */
+function mostrarJoc() {
     var p=3;
     id = dada.id;
     tornActual = dada.torn;
@@ -63,14 +64,7 @@ function callbackAJAXJoc() {
         pieces = dada.pieces2;
     }
 
-    document.addEventListener("load",setInterval(function () {
-        if(tornActual != id) {
-            cridaAJAXcanviTorn('/updateTorn?idJugador=' + id );
-            document.getElementById("tornDiv").innerHTML = "<p>Es el torn del jugador"+tornActual +". Espera.</p>";
-        }else if(tornActual == id){
-            document.getElementById("tornDiv").innerHTML = "<p>Es el teu torn jugador"+tornActual +".</p><p> Arrosega al costat la peça que vulguis jugar.</p>";
-        }
-    }, 3000));
+
 
 
     for (var i=0;i<pieces.length;i++) {
@@ -79,7 +73,7 @@ function callbackAJAXJoc() {
         b.height = 90;
         b.width = 45;
         b.draggable = true;
-        var srcImg ="/Images/Fitxes"+pieces[i]+".png";
+        var srcImg ="/imatge?img="+pieces[i]+".png";
         b.src = srcImg;
         //"<img src=img\\"+pieces[i]+">";
         b.className = "piece";
@@ -90,6 +84,14 @@ function callbackAJAXJoc() {
         document.getElementById('idDiv').innerText = "Piece: "+id;
         console.log(pieces[i]);
     }
+    document.addEventListener("load",setInterval(function () {
+        if(tornActual != id) {
+            cridaAJAXcanviTorn('/updateTorn?idJugador=' + id );
+            document.getElementById("tornDiv").innerHTML = "<p>Es el torn del jugador"+tornActual +". Espera.</p>";
+        }else if(tornActual == id){
+            document.getElementById("tornDiv").innerHTML = "<p>Es el teu torn jugador"+tornActual +".</p><p> Arrosega al costat la peça que vulguis jugar.</p>";
+        }
+    }, 3000));
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -142,7 +144,7 @@ function mostrarJugada() {
         b.height = 90;
         b.width = 45;
         b.draggable = false;
-        var srcImg ="/imatge?img="+playedPieces[i]+".png";
+        var srcImg ="/Images/Fitxes/?img="+playedPieces[i]+".png";
         b.src = srcImg;
         b.className = "piece";
         b.title =  playedPieces[i]+": J"+id;
@@ -235,7 +237,7 @@ function canviTorn(id, torn) {
         b.height = 90;
         b.width = 45;
         b.draggable = false;
-        var srcImg ="/imatge?img="+playedPieces[i]+".png";
+        var srcImg ="/Images/Fitxes/?img="+playedPieces[i]+".png";
         b.src = srcImg;
         b.className = "piece";
         b.title =  playedPieces[i]+": J"+id;
