@@ -245,13 +245,13 @@ function iniciar() {
 			var players = numPlayers.length;
 			//var Username = consulta['Username'];
 
-			if(id == 0 && players == 0){
+			if (id == 0 && players == 0) {
 				id = 1;
 				numPlayers.push(1);
-			}else if(id == 0 && players == 1){
+			} else if (id == 0 && players == 1) {
 				id = 2;
 				numPlayers.push(2);
-			}else {
+			} else {
 				id;
 			}
 			console.log("Player " + id + " has logged in");
@@ -625,11 +625,11 @@ function iniciar() {
 				response.write(sortida);
 				response.end();
 			});
-		}else if (pathname == '/imatge') {
+		} else if (pathname == '/imatge') {
 			response.writeHead(200, {
 				"Content-Type": "text/html; charset=utf-8"
 			});
-			fs.readFile('./Images/Fitxes/'+consulta['img'], function (err, sortida) {
+			fs.readFile('./Images/Fitxes/' + consulta['img'], function (err, sortida) {
 				response.writeHead(200, {
 					'Content-Type': 'image/png'
 				});
@@ -637,83 +637,83 @@ function iniciar() {
 				response.write(sortida);
 				response.end();
 			});
+		} else if (pathname == '/start') {
+			response.writeHead(200, {
+				"Content-Type": "application/json charset=utf-8"
+			});
+			console.log("jugador " + consulta['idJugador']);
+
+			var objecteJoc = {
+				"id": consulta['idJugador'],
+				"torn": 1,
+				"pieces": [
+					"00", "01", "02", "03", "04", "05", "06",
+					"11", "12", "13", "14", "15", "16",
+					"22", "23", "24", "25", "26",
+					"33", "34", "35", "36",
+					"44", "45", "46",
+					"55", "56",
+					"66"
+				],
+				"pieces1": player1Hand,
+				"pieces2": player2Hand
+			};
+			response.write(JSON.stringify(objecteJoc));
+			response.end();
+		} else if (pathname == '/playedPiece') {
+			response.writeHead(200, {
+				"Content-Type": "text/xml; charset=utf-8"
+			});
+			torn = consulta['torn'];
+			if (consulta['costat'] === "dropDre") {
+				playedPieces.push(consulta['piece']);
+			} else if (consulta['costat'] === "dropEsq") {
+				playedPieces.unshift(consulta['piece']);
+			}
+
+			if (torn == 1) {
+				torn = 2;
+			} else if (torn == 2) {
+				torn = 1;
+			}
+
+			var objecteTirada = {
+				"id": consulta['idJugador'],
+				"tirada": consulta['piece'],
+				"correct": true,
+				"torn": torn,
+				"playedPieces": playedPieces
+			};
+
+			console.log("El jugador " + consulta['idJugador'] + " ha tirat " + consulta['piece']);
+			response.write(JSON.stringify(objecteTirada));
+			response.end();
+
+		} else if (pathname == '/updateTorn') {
+			response.writeHead(200, {
+				"Content-Type": "text/xml; charset=utf-8"
+			});
+			var objecteUpdate = {
+				"id": consulta['idJugador'],
+				"torn": torn,
+				"playedPieces": playedPieces
+			};
+
+			response.write(JSON.stringify(objecteUpdate));
+			response.end();
+
+		} else {
+			response.writeHead(404, {
+				"Content-Type": "text/html; charset=utf-8"
+			});
+			sortida = "404 NOT FOUND";
+			response.write(sortida);
+			response.end();
 		}
-		 else if(pathname == '/start') {
-		response.writeHead(200, {
-			"Content-Type": "application/json charset=utf-8"
-		});
-		console.log("jugador "+consulta['idJugador']);
-
-		var objecteJoc = {
-			"id" : consulta['idJugador'],
-			"torn" : 1,
-			"pieces":[
-				"00","01","02","03","04","05","06",
-				"11","12","13","14","15","16",
-				"22","23","24","25","26",
-				"33","34","35","36",
-				"44","45","46",
-				"55","56",
-				"66"
-			],
-			"pieces1": player1Hand,
-			"pieces2": player2Hand
-		};
-		response.write(JSON.stringify(objecteJoc));
-		response.end();
-	} else if(pathname == '/playedPiece') {
-		response.writeHead(200, {
-			"Content-Type": "text/xml; charset=utf-8"
-		});
-		torn = consulta['torn'];
-		if(consulta['costat'] === "dropDre" ){
-			playedPieces.push(consulta['piece']);
-		}else if(consulta['costat'] === "dropEsq" ){
-			playedPieces.unshift(consulta['piece']);
-		}
-
-		if(torn == 1 ){
-			torn = 2;
-		}else if(torn == 2 ){
-			torn = 1;
-		}
-
-		var objecteTirada = {
-			"id" : consulta['idJugador'],
-			"tirada" : consulta['piece'],
-			"correct" : true,
-			"torn": torn,
-			"playedPieces" : playedPieces
-		};
-
-		console.log("El jugador "+consulta['idJugador']+" ha tirat "+consulta['piece']);
-		response.write(JSON.stringify(objecteTirada));
-		response.end();
-
-	} else if(pathname == '/updateTorn') {
-		response.writeHead(200, {
-			"Content-Type": "text/xml; charset=utf-8"
-		});
-		var objecteUpdate = {
-			"id" : consulta['idJugador'],
-			"torn": torn,
-			"playedPieces" : playedPieces
-		};
-
-		response.write(JSON.stringify(objecteUpdate));
-		response.end();
-
-	}else {
-		response.writeHead(404, {
-			"Content-Type": "text/html; charset=utf-8"
-		});
-		sortida = "404 NOT FOUND";
-		response.write(sortida);
-		response.end();
-	}
 
 		http.createServer(onRequest).listen(8888);
-	console.log("Server started at http://localhost:8888");
+		console.log("Server started at http://localhost:8888");
+	}
 }
 function repartirPeces(peces){
 	var p =[];
@@ -744,6 +744,7 @@ function repartirPeces(peces){
 	//player2Hand = p2;
 	retornarPecesImg(p1,p2);
 }
+
 
 
 function retornarPecesImg(peces1,peces2) {
