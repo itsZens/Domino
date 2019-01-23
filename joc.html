@@ -1,22 +1,74 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <title>DAW2</title>
-    <meta charset="utf-8" />
-    <meta name="author" content="sergi.grau@fje.edu" />
+    <meta charset="utf-8"/>
+    <title>Domino Online - Game</title>
+    <meta charset="utf-8"/>
+    <meta name="author" content="sergi.grau@fje.edu"/>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script type="text/javascript" src="/js/Game.js"></script>
     <script type="text/javascript" src="/js/Lobby.js"></script>
     <script type="text/javascript" src="/js/scriptJoc.js"></script>
+    <link href="css/Lobby.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+            integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+            crossorigin="anonymous"></script>
 </head>
 
 <body>
-<h1> E05 AJAX i Google char API  </h1>
-<div id="domino"></div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Domino Online</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/Index">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="/Scoreboards">Scoreboards</a>
+        </div>
+    </div>
+    <div class="dropdown" style="margin-right: 2%;">
+        <a class="btn btn-secondary dropdown-toggle" style="background-color: #666666;" href="#" role="button"
+           id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-<div id="idDiv"></div>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownUserMenu">
+            <a class="dropdown-item" onclick="" href="/Index">Log out</a>
+        </div>
+    </div>
+</nav>
+
+<div class="row">
+    <div class="col-sm-5 col-centered">
+        <div class="card">
+            <div class="container">
+                <div id="domino"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-5 col-centered">
+        <div class="card">
+            <div class="container">
+                <div id="idDiv"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 </body>
-dominoDiv
+
 </html>

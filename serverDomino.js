@@ -26,7 +26,7 @@ function iniciar() {
 			&& pathname != '/css/Domino.css' && pathname != '/css/Scoreboards.css' && pathname != '/js/Scoreboards.js'
 			&& pathname != '/Images/Trophy.png' && pathname != '/Images/SecondPrize.png' && pathname != '/Images/ThirdPrize.png'
 			&& pathname != '/css/Lobby.css' && pathname != '/' && pathname != '/json' && pathname != '/js/Domino.js'
-			&& pathname != pathname.includes(imgPaths)) {
+			&& pathname != pathname.includes(imgPaths) && pathname != '/js/scriptJoc.js' && pathname != '/updateTorn') {
 			console.log("Request for " + pathname + " received.");
 		}
 
