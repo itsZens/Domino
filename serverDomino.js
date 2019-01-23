@@ -66,21 +66,7 @@ function iniciar() {
 				response.write(sortida);
 				response.end();
 			});
-		} else if (pathname == '/js/scriptJoc.js') {
-			response.writeHead(200, {
-				"Content-Type": "text/html; charset=utf-8"
-			});
-
-			fs.readFile('./js/scriptJoc.js', function (err, sortida) {
-				response.writeHead(200, {
-					'Content-Type': 'text/css'
-				});
-
-				response.write(sortida);
-				response.end();
-			});
-
-		}else if (pathname == '/css/Index.css') {
+		} else if (pathname == '/css/Index.css') {
 			response.writeHead(200, {
 				"Content-Type": "text/css; charset=utf-8"
 			});
@@ -254,6 +240,7 @@ function iniciar() {
 				"Content-Type": "application/json charset=utf-8"
 			});
 
+			var consulta = url.parse(request.url, true).query;
 			var id = consulta['idJugador'];
 			var players = numPlayers.length;
 			//var Username = consulta['Username'];
@@ -724,8 +711,6 @@ function iniciar() {
 		response.write(sortida);
 		response.end();
 	}
-
-}
 
 		http.createServer(onRequest).listen(8888);
 	console.log("Server started at http://localhost:8888");
