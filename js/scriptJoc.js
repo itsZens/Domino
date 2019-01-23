@@ -73,7 +73,7 @@ function mostrarJoc() {
         b.height = 90;
         b.width = 45;
         b.draggable = true;
-        var srcImg ="/Images/Fitxes/?img="+pieces[i]+".png";
+        var srcImg ="/Images/Fitxes/"+pieces[i]+".png";
         b.src = srcImg;
         //"<img src=img\\"+pieces[i]+">";
         b.className = "piece";
@@ -144,7 +144,7 @@ function mostrarJugada() {
         b.height = 90;
         b.width = 45;
         b.draggable = false;
-        var srcImg ="/Images/Fitxes/?img="+playedPieces[i]+".png";
+        var srcImg ="/Images/Fitxes/"+playedPieces[i]+".png";
         b.src = srcImg;
         b.className = "piece";
         b.title =  playedPieces[i]+": J"+id;
@@ -237,7 +237,7 @@ function canviTorn(id, torn) {
         b.height = 90;
         b.width = 45;
         b.draggable = false;
-        var srcImg ="/Images/Fitxes/?img="+playedPieces[i]+".png";
+        var srcImg ="/Images/Fitxes/"+playedPieces[i]+".png";
         b.src = srcImg;
         b.className = "piece";
         b.title =  playedPieces[i]+": J"+id;
