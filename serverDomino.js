@@ -115,7 +115,20 @@ function iniciar() {
 				response.write(sortida);
 				response.end();
 			});
-		} else if (pathname == '/js/Game.js') {
+		}else if (pathname == '/js/scriptJoc.js') {
+			response.writeHead(200, {
+				"Content-Type": "text/js; charset=utf-8"
+			});
+
+			fs.readFile('./js/scriptJoc.js', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'text/js'
+				});
+				response.write(sortida);
+				response.end();
+			});
+		}
+		else if (pathname == '/js/Game.js') {
 			response.writeHead(200, {
 				"Content-Type": "text/js; charset=utf-8"
 			});
