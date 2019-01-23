@@ -3,7 +3,8 @@ var url = require('url');
 var querystring = require('querystring');
 var fs = require('fs');
 var numPlayers = [];
-
+var pieces =  ["00","01","02","03","04","05","06","11","12","13","14","15","16", "22","23","24","25","26", "33","34","35",
+                "36", "44","45","46", "55","56", "66"];
 repartirPeces(pieces);
 
 
@@ -46,7 +47,43 @@ function iniciar() {
 				response.write(sortida);
 				response.end();
 			});
-		} else if (pathname == '/serverDomino.js') {
+		} else if(pathname == '/start') {
+            response.writeHead(200, {
+                "Content-Type": "application/json charset=utf-8"
+            });
+            console.log("jugador "+consulta['idJugador']);
+
+            var objecteJoc = {
+                "id" : consulta['idJugador'],
+                "torn" : 1,
+                "pieces":[
+                    "00","01","02","03","04","05","06",
+                    "11","12","13","14","15","16",
+                    "22","23","24","25","26",
+                    "33","34","35","36",
+                    "44","45","46",
+                    "55","56",
+                    "66"
+                ],
+                "pieces1": player1Hand,
+                "pieces2": player2Hand
+            };
+            response.write(JSON.stringify(objecteJoc));
+            response.end();
+        } else if (pathname == '/imatge') {
+            response.writeHead(200, {
+                "Content-Type": "text/html; charset=utf-8"
+            });
+
+            fs.readFile('./Images/Fitxes'+consulta['png'], function (err, sortida) {
+                response.writeHead(200, {
+                    'Content-Type': 'image/png'
+                });
+
+                response.write(sortida);
+                response.end();
+            });
+        } else if (pathname == '/serverDomino.js') {
 			response.writeHead(200, {
 				"Content-Type": "text/js; charset=utf-8"
 			});
