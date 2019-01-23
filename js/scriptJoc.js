@@ -73,7 +73,7 @@ function mostrarJoc() {
         b.height = 90;
         b.width = 45;
         b.draggable = true;
-        var srcImg ="/imatge?img="+pieces[i]+".png";
+        var srcImg ="/Images/Fitxes/?img="+pieces[i]+".png";
         b.src = srcImg;
         //"<img src=img\\"+pieces[i]+">";
         b.className = "piece";
