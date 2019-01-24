@@ -375,7 +375,19 @@ function iniciar() {
 				response.write(sortida);
 				response.end();
 			});
-		} else if (pathname == '/Images/Fitxes/11.png') {
+		} else if (pathname == '/Images/Fitxes/10.png') {
+			response.writeHead(200, {
+				"Content-Type": "image/png; charset=utf-8"
+			});
+
+			fs.readFile('./Images/Fitxes/10.png', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'image/png'
+				});
+				response.write(sortida);
+				response.end();
+			});
+		}else if (pathname == '/Images/Fitxes/11.png') {
 			response.writeHead(200, {
 				"Content-Type": "image/png; charset=utf-8"
 			});
@@ -411,7 +423,67 @@ function iniciar() {
 				response.write(sortida);
 				response.end();
 			});
-		} else if (pathname == '/Images/Fitxes/22.png') {
+		} else if (pathname == '/Images/Fitxes/14.png') {
+			response.writeHead(200, {
+				"Content-Type": "image/png; charset=utf-8"
+			});
+
+			fs.readFile('./Images/Fitxes/14.png', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'image/png'
+				});
+				response.write(sortida);
+				response.end();
+			});
+		}else if (pathname == '/Images/Fitxes/15.png') {
+			response.writeHead(200, {
+				"Content-Type": "image/png; charset=utf-8"
+			});
+
+			fs.readFile('./Images/Fitxes/15.png', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'image/png'
+				});
+				response.write(sortida);
+				response.end();
+			});
+		}else if (pathname == '/Images/Fitxes/16.png') {
+			response.writeHead(200, {
+				"Content-Type": "image/png; charset=utf-8"
+			});
+
+			fs.readFile('./Images/Fitxes/16.png', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'image/png'
+				});
+				response.write(sortida);
+				response.end();
+			});
+		}	else if (pathname == '/Images/Fitxes/20.png') {
+			response.writeHead(200, {
+				"Content-Type": "image/png; charset=utf-8"
+			});
+
+			fs.readFile('./Images/Fitxes/20.png', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'image/png'
+				});
+				response.write(sortida);
+				response.end();
+			});
+		}else if (pathname == '/Images/Fitxes/21.png') {
+			response.writeHead(200, {
+				"Content-Type": "image/png; charset=utf-8"
+			});
+
+			fs.readFile('./Images/Fitxes/21.png', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'image/png'
+				});
+				response.write(sortida);
+				response.end();
+			});
+		}else if (pathname == '/Images/Fitxes/22.png') {
 			response.writeHead(200, {
 				"Content-Type": "image/png; charset=utf-8"
 			});
@@ -435,7 +507,79 @@ function iniciar() {
 				response.write(sortida);
 				response.end();
 			});
-		} else if (pathname == '/Images/Fitxes/33.png') {
+		}else if (pathname == '/Images/Fitxes/24.png') {
+			response.writeHead(200, {
+				"Content-Type": "image/png; charset=utf-8"
+			});
+
+			fs.readFile('./Images/Fitxes/24.png', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'image/png'
+				});
+				response.write(sortida);
+				response.end();
+			});
+		}else if (pathname == '/Images/Fitxes/25.png') {
+			response.writeHead(200, {
+				"Content-Type": "image/png; charset=utf-8"
+			});
+
+			fs.readFile('./Images/Fitxes/25.png', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'image/png'
+				});
+				response.write(sortida);
+				response.end();
+			});
+		}else if (pathname == '/Images/Fitxes/26.png') {
+			response.writeHead(200, {
+				"Content-Type": "image/png; charset=utf-8"
+			});
+
+			fs.readFile('./Images/Fitxes/26.png', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'image/png'
+				});
+				response.write(sortida);
+				response.end();
+			});
+		}else if (pathname == '/Images/Fitxes/30.png') {
+			response.writeHead(200, {
+				"Content-Type": "image/png; charset=utf-8"
+			});
+
+			fs.readFile('./Images/Fitxes/30.png', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'image/png'
+				});
+				response.write(sortida);
+				response.end();
+			});
+		}else if (pathname == '/Images/Fitxes/31.png') {
+			response.writeHead(200, {
+				"Content-Type": "image/png; charset=utf-8"
+			});
+
+			fs.readFile('./Images/Fitxes/31.png', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'image/png'
+				});
+				response.write(sortida);
+				response.end();
+			});
+		}else if (pathname == '/Images/Fitxes/32.png') {
+			response.writeHead(200, {
+				"Content-Type": "image/png; charset=utf-8"
+			});
+
+			fs.readFile('./Images/Fitxes/32.png', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'image/png'
+				});
+				response.write(sortida);
+				response.end();
+			});
+		}else if (pathname == '/Images/Fitxes/33.png') {
 			response.writeHead(200, {
 				"Content-Type": "image/png; charset=utf-8"
 			});
@@ -447,7 +591,55 @@ function iniciar() {
 				response.write(sortida);
 				response.end();
 			});
-		} else if (pathname == '/Images/Fitxes/41.png') {
+		} else if (pathname == '/Images/Fitxes/34.png') {
+			response.writeHead(200, {
+				"Content-Type": "image/png; charset=utf-8"
+			});
+
+			fs.readFile('./Images/Fitxes/34.png', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'image/png'
+				});
+				response.write(sortida);
+				response.end();
+			});
+		} else if (pathname == '/Images/Fitxes/35.png') {
+			response.writeHead(200, {
+				"Content-Type": "image/png; charset=utf-8"
+			});
+
+			fs.readFile('./Images/Fitxes/35.png', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'image/png'
+				});
+				response.write(sortida);
+				response.end();
+			});
+		} else if (pathname == '/Images/Fitxes/36.png') {
+			response.writeHead(200, {
+				"Content-Type": "image/png; charset=utf-8"
+			});
+
+			fs.readFile('./Images/Fitxes/36.png', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'image/png'
+				});
+				response.write(sortida);
+				response.end();
+			});
+		} else if (pathname == '/Images/Fitxes/40.png') {
+			response.writeHead(200, {
+				"Content-Type": "image/png; charset=utf-8"
+			});
+
+			fs.readFile('./Images/Fitxes/40.png', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'image/png'
+				});
+				response.write(sortida);
+				response.end();
+			});
+		}else if (pathname == '/Images/Fitxes/41.png') {
 			response.writeHead(200, {
 				"Content-Type": "image/png; charset=utf-8"
 			});
@@ -495,7 +687,43 @@ function iniciar() {
 				response.write(sortida);
 				response.end();
 			});
-		} else if (pathname == '/Images/Fitxes/51.png') {
+		} else if (pathname == '/Images/Fitxes/45.png') {
+			response.writeHead(200, {
+				"Content-Type": "image/png; charset=utf-8"
+			});
+
+			fs.readFile('./Images/Fitxes/45.png', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'image/png'
+				});
+				response.write(sortida);
+				response.end();
+			});
+		} else if (pathname == '/Images/Fitxes/46.png') {
+			response.writeHead(200, {
+				"Content-Type": "image/png; charset=utf-8"
+			});
+
+			fs.readFile('./Images/Fitxes/46.png', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'image/png'
+				});
+				response.write(sortida);
+				response.end();
+			});
+		} else if (pathname == '/Images/Fitxes/50.png') {
+			response.writeHead(200, {
+				"Content-Type": "image/png; charset=utf-8"
+			});
+
+			fs.readFile('./Images/Fitxes/50.png', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'image/png'
+				});
+				response.write(sortida);
+				response.end();
+			});
+		}else if (pathname == '/Images/Fitxes/51.png') {
 			response.writeHead(200, {
 				"Content-Type": "image/png; charset=utf-8"
 			});
@@ -555,7 +783,31 @@ function iniciar() {
 				response.write(sortida);
 				response.end();
 			});
-		} else if (pathname == '/Images/Fitxes/61.png') {
+		}  else if (pathname == '/Images/Fitxes/56.png') {
+			response.writeHead(200, {
+				"Content-Type": "image/png; charset=utf-8"
+			});
+
+			fs.readFile('./Images/Fitxes/60.png', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'image/png'
+				});
+				response.write(sortida);
+				response.end();
+			});
+		} else if (pathname == '/Images/Fitxes/60.png') {
+			response.writeHead(200, {
+				"Content-Type": "image/png; charset=utf-8"
+			});
+
+			fs.readFile('./Images/Fitxes/34.png', function (err, sortida) {
+				response.writeHead(200, {
+					'Content-Type': 'image/png'
+				});
+				response.write(sortida);
+				response.end();
+			});
+		}else if (pathname == '/Images/Fitxes/61.png') {
 			response.writeHead(200, {
 				"Content-Type": "image/png; charset=utf-8"
 			});
@@ -755,8 +1007,7 @@ function repartirPeces(peces){
 
 			i++;
 		}
-	}//player1Hand = p1;
-	//player2Hand = p2;
+	}
 	retornarPecesImg(p1,p2);
 }
 

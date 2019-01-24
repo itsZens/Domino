@@ -13,6 +13,7 @@
  * ORIGEN
  * Desenvolupament en entorn client. Escola del clot
  */
+
 var id = 0;
 var rightMove;
 var pieces = [];
@@ -143,8 +144,6 @@ function mostrarJugada() {
     playedPieces = dada.playedPieces;
     tornActual = dada.torn;
     //document.getElementById('idDiv').innerText = "Jugador: "+id+" tirada: "+ piece +" correcte?: " + rightMove + "pecesJugades: "+ playedPieces.toString();
-    document.getElementById('idDiv').innerText = "Hi player: "+storedArray[storedArray.length - 1];
-    for(var i = 0; i < playedPieces.length ; i++){
         var b = document.createElement('img');
         b.id = playedPieces[i];
         b.height = 90;
@@ -153,9 +152,10 @@ function mostrarJugada() {
         var srcImg ="./Images/Fitxes/"+playedPieces[i]+".png";
         b.src = srcImg;
         b.className = "piece";
-        b.title =  playedPieces[i]+": J"+id;
+        b.title =  playedPieces[i]+": Player"+id;
         document.getElementById('jugades').appendChild(b);
-    }
+
+
 }
 
 ///////////////////////////////////////////////////////////////////////////
@@ -246,7 +246,7 @@ function canviTorn(id, torn) {
         var srcImg ="./Images/Fitxes/"+playedPieces[i]+".png";
         b.src = srcImg;
         b.className = "piece";
-        b.title =  playedPieces[i]+": J"+id;
+        b.title =  playedPieces[i]+": Player"+id;
         document.getElementById('jugades').appendChild(b);
     }
     //clearInterval(id_canviTorn);
