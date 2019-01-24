@@ -643,7 +643,7 @@ function iniciar() {
 			response.writeHead(200, {
 				"Content-Type": "text/html; charset=utf-8"
 			});
-			fs.readFile('./Images/Fitxes/' + consulta['img'], function (err, sortida) {
+			fs.readFile('./Images/Fitxes/'+ consulta['img'], function (err, sortida) {
 				response.writeHead(200, {
 					'Content-Type': 'image/png'
 				});
@@ -763,11 +763,11 @@ function repartirPeces(peces){
 
 
 function retornarPecesImg(peces1,peces2) {
-	for(var i= 0; i<peces1.length;i++){
+	for(var i= 0; i<7;i++){
 		player1Hand[i] = pieces[peces1[i]];
-	};
+	}
 
-	for(var j= 0; j<peces2.length;j++){
+	for(var j= 0; j<7;j++){
 		player2Hand[j] = pieces[peces2[j]];
 	}
 }

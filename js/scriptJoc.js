@@ -17,7 +17,13 @@ var id = 0;
 var rightMove;
 var pieces = [];
 var playedPieces = [];
+var storedArray = JSON.parse(sessionStorage.getItem("items"));//no brackets
+var i;
+for (i = 0; i < storedArray.length; i++) {
+    console.log(storedArray[i]);
+}
 
+//document.getElementById('dropdownUser').innerHTML = storedArray[storedArray.length - 1];
 ///////////////////////////////////////////////////////
 
 /**
@@ -73,7 +79,7 @@ function mostrarJoc() {
         b.height = 90;
         b.width = 45;
         b.draggable = true;
-        var srcImg ="/Images/Fitxes/?img="+pieces[i]+".png";
+        var srcImg ="./Images/Fitxes/"+pieces[i]+".png";
         b.src = srcImg;
         //"<img src=img\\"+pieces[i]+">";
         b.className = "piece";
@@ -87,9 +93,9 @@ function mostrarJoc() {
     document.addEventListener("load",setInterval(function () {
         if(tornActual != id) {
             cridaAJAXcanviTorn('/updateTorn?idJugador=' + id );
-            document.getElementById("tornDiv").innerHTML = "<p>Es el torn del jugador"+tornActual +". Espera.</p>";
+            document.getElementById("tornDiv").innerHTML = "<p>No és el teu torn jugador "+storedArray[storedArray.length - 1] +". Espera.</p>";
         }else if(tornActual == id){
-            document.getElementById("tornDiv").innerHTML = "<p>Es el teu torn jugador"+tornActual +".</p><p> Arrosega al costat la peça que vulguis jugar.</p>";
+            document.getElementById("tornDiv").innerHTML = "<p>Es el teu torn jugador "+storedArray[storedArray.length - 1] +".</p><p> Arrosega al costat la peça que vulguis jugar.</p>";
         }
     }, 3000));
 }
@@ -137,14 +143,14 @@ function mostrarJugada() {
     playedPieces = dada.playedPieces;
     tornActual = dada.torn;
     //document.getElementById('idDiv').innerText = "Jugador: "+id+" tirada: "+ piece +" correcte?: " + rightMove + "pecesJugades: "+ playedPieces.toString();
-    document.getElementById('idDiv').innerText = "Hola Jugador: "+id;
+    document.getElementById('idDiv').innerText = "Hola Jugador: "+storedArray[storedArray.length - 1];
     for(var i = 0; i < playedPieces.length ; i++){
         var b = document.createElement('img');
         b.id = playedPieces[i];
         b.height = 90;
         b.width = 45;
         b.draggable = false;
-        var srcImg ="/Images/Fitxes/?img="+playedPieces[i]+".png";
+        var srcImg ="./Images/Fitxes/"+playedPieces[i]+".png";
         b.src = srcImg;
         b.className = "piece";
         b.title =  playedPieces[i]+": J"+id;
@@ -237,7 +243,7 @@ function canviTorn(id, torn) {
         b.height = 90;
         b.width = 45;
         b.draggable = false;
-        var srcImg ="/Images/Fitxes/?img="+playedPieces[i]+".png";
+        var srcImg ="./Images/Fitxes/"+playedPieces[i]+".png";
         b.src = srcImg;
         b.className = "piece";
         b.title =  playedPieces[i]+": J"+id;
