@@ -93,9 +93,9 @@ function mostrarJoc() {
     document.addEventListener("load",setInterval(function () {
         if(tornActual != id) {
             cridaAJAXcanviTorn('/updateTorn?idJugador=' + id );
-            document.getElementById("tornDiv").innerHTML = "<p>No és el teu torn jugador "+storedArray[storedArray.length - 1] +". Espera.</p>";
+            document.getElementById("tornDiv").innerHTML = "<p>It is NOT your turn player "+storedArray[storedArray.length - 1] +". Wait until your opponent play.</p>";
         }else if(tornActual == id){
-            document.getElementById("tornDiv").innerHTML = "<p>Es el teu torn jugador "+storedArray[storedArray.length - 1] +".</p><p> Arrosega al costat la peça que vulguis jugar.</p>";
+            document.getElementById("tornDiv").innerHTML = "<p>It is your turn player "+storedArray[storedArray.length - 1] +".</p><p> Slide to a side the piece you want to play.</p>";
         }
     }, 3000));
 }
@@ -143,7 +143,7 @@ function mostrarJugada() {
     playedPieces = dada.playedPieces;
     tornActual = dada.torn;
     //document.getElementById('idDiv').innerText = "Jugador: "+id+" tirada: "+ piece +" correcte?: " + rightMove + "pecesJugades: "+ playedPieces.toString();
-    document.getElementById('idDiv').innerText = "Hola Jugador: "+storedArray[storedArray.length - 1];
+    document.getElementById('idDiv').innerText = "Hi player: "+storedArray[storedArray.length - 1];
     for(var i = 0; i < playedPieces.length ; i++){
         var b = document.createElement('img');
         b.id = playedPieces[i];
